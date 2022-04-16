@@ -1,0 +1,51 @@
+﻿kind: Service
+apiVersion: v1
+metadata:
+  name: mlflow-service
+  namespace: mlflow-test
+  selfLink: /api/v1/namespaces/mlflow-test/services/mlflow-service
+  uid: 32e904cc-9226-430d-91af-b2a6a2fccb21
+  resourceVersion: '301185'
+  creationTimestamp: '2022-04-13T18:42:52Z'
+  labels:
+    app: MyDeployment
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: v1
+      time: '2022-04-16T10:30:57Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:ports':
+            .: {}
+            'k:{"port":5000,"protocol":"TCP"}':
+              .: {}
+              'f:name': {}
+              'f:port': {}
+              'f:protocol': {}
+              'f:targetPort': {}
+          'f:selector':
+            .: {}
+            'f:app': {}
+          'f:sessionAffinity': {}
+          'f:type': {}
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 5000
+      targetPort: 5000
+  selector:
+    app: MyDeployment
+  clusterIP: 172.30.59.95
+  clusterIPs:
+    - 172.30.59.95
+  type: ClusterIP
+  sessionAffinity: None
+status:
+  loadBalancer: {}

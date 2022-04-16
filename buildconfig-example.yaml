@@ -1,0 +1,87 @@
+﻿kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: example
+  namespace: mlflow-test
+  uid: a204f928-ebf3-435e-b995-4468d1316a45
+  resourceVersion: '314632'
+  generation: 13
+  creationTimestamp: '2022-04-13T17:28:35Z'
+  managedFields:
+    - manager: openshift-apiserver
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2022-04-13T17:28:47Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:lastVersion': {}
+    - manager: Mozilla
+      operation: Update
+      apiVersion: build.openshift.io/v1
+      time: '2022-04-13T18:12:32Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          'f:failedBuildsHistoryLimit': {}
+          'f:output':
+            'f:pushSecret':
+              .: {}
+              'f:name': {}
+            'f:to':
+              .: {}
+              'f:kind': {}
+              'f:name': {}
+          'f:resources':
+            'f:limits':
+              .: {}
+              'f:cpu': {}
+              'f:memory': {}
+          'f:runPolicy': {}
+          'f:source':
+            'f:dockerfile': {}
+            'f:type': {}
+          'f:strategy':
+            'f:dockerStrategy':
+              .: {}
+              'f:pullSecret':
+                .: {}
+                'f:name': {}
+            'f:type': {}
+          'f:successfulBuildsHistoryLimit': {}
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: DockerImage
+      name: 'quay.io/pkadian1/mlflow:latest'
+    pushSecret:
+      name: pkadian1-do288-pull-secret
+  resources:
+    limits:
+      cpu: '2'
+      memory: 4Gi
+  successfulBuildsHistoryLimit: 5
+  failedBuildsHistoryLimit: 5
+  strategy:
+    type: Docker
+    dockerStrategy:
+      pullSecret:
+        name: builder-dockercfg-tfwvs
+  postCommit: {}
+  source:
+    type: Dockerfile
+    dockerfile: >-
+      FROM registry.redhat.io/ubi8/python-38
+
+      RUN pip install mlflow
+
+      EXPOSE 5000
+
+      #ENTRYPOINT mlflow ui --host 0.0.0.0
+
+      ENTRYPOINT mlflow server --backend-store-uri sqlite:///:memory
+      --default-artifact-root ./mlruns    --host 0.0.0.0
+  runPolicy: Serial
+status:
+  lastVersion: 9

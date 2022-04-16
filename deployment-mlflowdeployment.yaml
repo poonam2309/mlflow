@@ -1,0 +1,327 @@
+﻿kind: Deployment
+apiVersion: apps/v1
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: '3'
+  selfLink: /apis/apps/v1/namespaces/mlflow-test/deployments/mlflowdeployment
+  resourceVersion: '315543'
+  name: mlflowdeployment
+  uid: 4cad775d-4f59-47ea-8cfc-7fe61644a9ad
+  creationTimestamp: '2022-04-13T18:34:03Z'
+  generation: 7
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-04-16T09:12:10Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+            'f:source': {}
+        'f:spec':
+          'f:progressDeadlineSeconds': {}
+          'f:replicas': {}
+          'f:revisionHistoryLimit': {}
+          'f:selector': {}
+          'f:strategy':
+            'f:rollingUpdate':
+              .: {}
+              'f:maxSurge': {}
+              'f:maxUnavailable': {}
+            'f:type': {}
+          'f:template':
+            'f:metadata':
+              'f:labels':
+                .: {}
+                'f:app': {}
+            'f:spec':
+              'f:containers':
+                'k:{"name":"mlflow"}':
+                  'f:image': {}
+                  'f:terminationMessagePolicy': {}
+                  .: {}
+                  'f:resources':
+                    .: {}
+                    'f:limits':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                    'f:requests':
+                      .: {}
+                      'f:cpu': {}
+                      'f:memory': {}
+                  'f:livenessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:env':
+                    .: {}
+                    'k:{"name":"NODE_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                    'k:{"name":"POD_IP"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                    'k:{"name":"POD_NAME"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                    'k:{"name":"POD_NAMESPACE"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                    'k:{"name":"SERVICE_ACCOUNT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:valueFrom':
+                        .: {}
+                        'f:fieldRef':
+                          .: {}
+                          'f:apiVersion': {}
+                          'f:fieldPath': {}
+                    'k:{"name":"TCP_PORT"}':
+                      .: {}
+                      'f:name': {}
+                      'f:value': {}
+                  'f:readinessProbe':
+                    .: {}
+                    'f:failureThreshold': {}
+                    'f:httpGet':
+                      .: {}
+                      'f:path': {}
+                      'f:port': {}
+                      'f:scheme': {}
+                    'f:initialDelaySeconds': {}
+                    'f:periodSeconds': {}
+                    'f:successThreshold': {}
+                    'f:timeoutSeconds': {}
+                  'f:terminationMessagePath': {}
+                  'f:imagePullPolicy': {}
+                  'f:ports':
+                    .: {}
+                    'k:{"containerPort":5000,"protocol":"TCP"}':
+                      .: {}
+                      'f:containerPort': {}
+                      'f:name': {}
+                      'f:protocol': {}
+                  'f:name': {}
+              'f:dnsPolicy': {}
+              'f:serviceAccount': {}
+              'f:restartPolicy': {}
+              'f:schedulerName': {}
+              'f:terminationGracePeriodSeconds': {}
+              'f:imagePullSecrets':
+                .: {}
+                'k:{"name":"pkadian1-do288-pull-secret"}':
+                  .: {}
+                  'f:name': {}
+              'f:serviceAccountName': {}
+              'f:securityContext': {}
+              'f:affinity':
+                .: {}
+                'f:podAntiAffinity':
+                  .: {}
+                  'f:preferredDuringSchedulingIgnoredDuringExecution': {}
+                  'f:requiredDuringSchedulingIgnoredDuringExecution': {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2022-04-16T11:23:27Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:annotations':
+            .: {}
+            'f:deployment.kubernetes.io/revision': {}
+        'f:status':
+          'f:availableReplicas': {}
+          'f:conditions':
+            .: {}
+            'k:{"type":"Available"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+            'k:{"type":"Progressing"}':
+              .: {}
+              'f:lastTransitionTime': {}
+              'f:lastUpdateTime': {}
+              'f:message': {}
+              'f:reason': {}
+              'f:status': {}
+              'f:type': {}
+          'f:observedGeneration': {}
+          'f:readyReplicas': {}
+          'f:replicas': {}
+          'f:updatedReplicas': {}
+  namespace: mlflow-test
+  labels:
+    app: mlfflow
+    source: mysource
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: MyDeployment
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: MyDeployment
+    spec:
+      restartPolicy: Always
+      serviceAccountName: default
+      imagePullSecrets:
+        - name: pkadian1-do288-pull-secret
+      schedulerName: default-scheduler
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app
+                    operator: In
+                    values:
+                      - MyDeployment
+              topologyKey: kubernetes.io/hostname
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 100
+              podAffinityTerm:
+                labelSelector:
+                  matchExpressions:
+                    - key: app
+                      operator: In
+                      values:
+                        - MyDeployment
+                topologyKey: kubernetes.io/hostname
+      terminationGracePeriodSeconds: 30
+      securityContext: {}
+      containers:
+        - resources:
+            limits:
+              cpu: 200m
+              memory: 8Gi
+            requests:
+              cpu: 100m
+              memory: 4Gi
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 5000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+            periodSeconds: 20
+            successThreshold: 1
+            failureThreshold: 3
+          terminationMessagePath: /dev/termination-log
+          name: mlflow
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 5000
+              scheme: HTTP
+            initialDelaySeconds: 30
+            timeoutSeconds: 5
+            periodSeconds: 20
+            successThreshold: 1
+            failureThreshold: 3
+          env:
+            - name: TCP_PORT
+              value: '8080'
+            - name: NODE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.nodeName
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+            - name: POD_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+            - name: POD_IP
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: status.podIP
+            - name: SERVICE_ACCOUNT
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: spec.serviceAccountName
+          ports:
+            - name: http
+              containerPort: 5000
+              protocol: TCP
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: 'quay.io/pkadian1/mlflow:latest'
+      serviceAccount: default
+      dnsPolicy: ClusterFirst
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
+status:
+  observedGeneration: 7
+  replicas: 1
+  updatedReplicas: 1
+  readyReplicas: 1
+  availableReplicas: 1
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2022-04-16T09:12:55Z'
+      lastTransitionTime: '2022-04-13T18:34:03Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "mlflowdeployment-c589b98bd" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2022-04-16T11:23:27Z'
+      lastTransitionTime: '2022-04-16T11:23:27Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.

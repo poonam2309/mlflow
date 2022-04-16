@@ -1,0 +1,64 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: aiml
+  namespace: mlflow-test
+  uid: 4237ebda-8e32-4bcd-9c47-65633b621590
+  resourceVersion: '299050'
+  creationTimestamp: '2022-04-16T10:26:55Z'
+  labels:
+    app: mlfflow
+  annotations:
+    openshift.io/host.generated: 'true'
+  managedFields:
+    - manager: Mozilla
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2022-04-16T10:26:55Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:metadata':
+          'f:labels':
+            .: {}
+            'f:app': {}
+        'f:spec':
+          'f:port':
+            .: {}
+            'f:targetPort': {}
+          'f:tls':
+            .: {}
+            'f:termination': {}
+          'f:to':
+            'f:kind': {}
+            'f:name': {}
+            'f:weight': {}
+          'f:wildcardPolicy': {}
+    - manager: openshift-router
+      operation: Update
+      apiVersion: route.openshift.io/v1
+      time: '2022-04-16T10:26:55Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:status':
+          'f:ingress': {}
+spec:
+  host: aiml-mlflow-test.apps.cluster-4971.4971.example.opentlc.com
+  to:
+    kind: Service
+    name: mlflow-service
+    weight: 100
+  port:
+    targetPort: http
+  tls:
+    termination: edge
+  wildcardPolicy: None
+status:
+  ingress:
+    - host: aiml-mlflow-test.apps.cluster-4971.4971.example.opentlc.com
+      routerName: default
+      conditions:
+        - type: Admitted
+          status: 'True'
+          lastTransitionTime: '2022-04-16T10:26:55Z'
+      wildcardPolicy: None
+      routerCanonicalHostname: apps.cluster-4971.4971.example.opentlc.com
